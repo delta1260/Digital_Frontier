@@ -1,208 +1,2045 @@
 [
-    {"instruction": "Crée un nouveau dossier nommé Projets 2025.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Projets 2025"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Ouvre ce PDF.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "PDF"}, "action_plan": "file_open"},
-    {"instruction": "Prévisualise cette image.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Prévisualise", "ITEM_TYPE": "image"}, "action_plan": "file_preview"},
-    {"instruction": "Renomme ce dossier en Archives anciennes.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Archives anciennes"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Renomme le fichier cv.pdf en cv_final.pdf.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "fichier", "NAME_SOURCE_ITEM": "cv.pdf", "NAME_DESTINATION_ITEM": "cv_final.pdf"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Déplace le rapport final dans le dossier Compta.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "rapport final", "TARGET_LOCATION": "dossier Compta"}, "action_plan": "fs_move"},
-    {"instruction": "Supprime ce document définitivement.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "ITEM_TYPE": "document", "DELETION_TYPE": "définitivement"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Extrais ce ZIP.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "ZIP"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Recherche les PDF.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": "PDF"}, "action_plan": "search_by_type"},
-    {"instruction": "Recherche le fichier 'Budget_2024'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "Budget_2024"}, "action_plan": "search_by_name"},
-    {"instruction": "Recherche les documents contenant 'Urgent'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "Urgent", "SEARCH_SCOPE": "contenu"}, "action_plan": "search_by_content"},
-    {"instruction": "Trie les photos par type.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "ITEM_TYPE": "photos", "SORT_CRITERIA": "par type"}, "action_plan": "display_by_type"},
-    {"instruction": "Envoie ce fichier par mail.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "ITEM_TYPE": "fichier", "TARGET_LOCATION": "par mail"}, "action_plan": "action_send_message"},
-    {"instruction": "Synchronise le dossier Drive.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "dossier Drive"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Copie cette photo sur le bureau.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "ITEM_TYPE": "photo", "TARGET_LOCATION": "bureau"}, "action_plan": "fs_copy"},
-    {"instruction": "Montre l'espace libre sur le disque C:.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Montre", "DEVICE_TARGET": "disque C:", "INFO_TYPE": "espace libre"}, "action_plan": "disk_view_space"},
-    {"instruction": "Vide la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Vide", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Mets ce fichier dans la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Mets", "NAME_SOURCE_ITEM": "ce fichier", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Éjecte la clé USB.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "clé USB"}, "action_plan": "disk_eject"},
-    {"instruction": "Affiche l’historique.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "historique"}, "action_plan": "action_view_history"},
-    {"instruction": "Restaure le dossier Projet X.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Restaure", "NAME_SOURCE_ITEM": "Projet X"}, "action_plan": "fs_restore"},
-    {"instruction": "Modifie le contenu du fichier texte.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Modifie", "ITEM_TYPE": "fichier texte"}, "action_plan": "file_edit_content"},
-    {"instruction": "Monte le lecteur réseau Z.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Monte", "DEVICE_TARGET": "lecteur réseau Z"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Imprime le contrat.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "contrat"}, "action_plan": "action_print"},
-    {"instruction": "Lance une session de travail.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance", "ITEM_TYPE": "session de travail"}, "action_plan": "action_run_session"},
-    {"instruction": "Trie par nom.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par nom"}, "action_plan": "display_by_name"},
-    {"instruction": "Affiche les éléments pertinents.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Affiche", "SORT_CRITERIA": "pertinents"}, "action_plan": "display_by_content"},
-    {"instruction": "Duplique le dossier Images.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Duplique", "OBJECT_TYPE": "dossier", "NAME_SOURCE_ITEM": "Images"}, "action_plan": "fs_copy"},
-    {"instruction": "Retrouve le rapport par son nom.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Retrouve", "NAME_SOURCE_ITEM": "rapport", "SEARCH_METHOD": "par nom"}, "action_plan": "search_by_name"},
-    {"instruction": "Fais un dossier 'Vacances'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Fais", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Vacances"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Crée un répertoire pour les factures 2024.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "répertoire", "NAME_DESTINATION_ITEM": "factures 2024"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Ouvre le document 'Strategie.pptx'.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "document", "NAME_SOURCE_ITEM": "Strategie.pptx"}, "action_plan": "file_open"},
-    {"instruction": "Déplace 'logo.png' vers le dossier 'Assets'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "logo.png", "TARGET_LOCATION": "dossier 'Assets'"}, "action_plan": "fs_move"},
-    {"instruction": "Affiche un aperçu de ce fichier texte.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche un aperçu", "ITEM_TYPE": "fichier texte"}, "action_plan": "file_preview"},
-    {"instruction": "Supprime définitivement les fichiers temporaires.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "DELETION_TYPE": "définitivement", "ITEM_TYPE": "fichiers temporaires"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Renomme le dossier 'Nouvel An' en 'Photos 2024'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_SOURCE_ITEM": "Nouvel An", "NAME_DESTINATION_ITEM": "Photos 2024"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Recherche tous les fichiers .jpg.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": ".jpg"}, "action_plan": "search_by_type"},
-    {"instruction": "Trie la liste par contenu.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par contenu"}, "action_plan": "display_by_content"},
-    {"instruction": "Synchronise le dossier partagé.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "dossier partagé"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Imprime le rapport annuel.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "rapport annuel"}, "action_plan": "action_print"},
-    {"instruction": "Vide le contenu de la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Vide", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Recherche 'urgent' dans le contenu des mails archivés.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "urgent", "SEARCH_SCOPE": "contenu des mails"}, "action_plan": "search_by_content"},
-    {"instruction": "Fais une copie de ce fichier ici.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Fais une copie", "NAME_SOURCE_ITEM": "ce fichier", "TARGET_LOCATION": "ici"}, "action_plan": "fs_copy"},
-    {"instruction": "Extrais tout le contenu de l'archive.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "archive"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Affiche l'espace disque restant.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "espace disque restant"}, "action_plan": "disk_view_space"},
-    {"instruction": "Envoie 'meeting_notes.docx' par email.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "NAME_SOURCE_ITEM": "meeting_notes.docx", "TARGET_LOCATION": "par email"}, "action_plan": "action_send_message"},
-    {"instruction": "Ouvre la présentation.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "présentation"}, "action_plan": "file_open"},
-    {"instruction": "Mets ce dossier à la poubelle.", "intention": "DELETE", "slots": {"ACTION_VERB": "Mets", "OBJECT_TYPE": "dossier", "DELETION_TYPE": "à la poubelle"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Restaure le fichier 'budget_v1.xls'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Restaure", "NAME_SOURCE_ITEM": "budget_v1.xls"}, "action_plan": "fs_restore"},
-    {"instruction": "Renomme 'draft.txt' en 'final.txt'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "NAME_SOURCE_ITEM": "draft.txt", "NAME_DESTINATION_ITEM": "final.txt"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Monte le disque réseau Z.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Monte", "DEVICE_TARGET": "disque réseau Z"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Éjecte le disque dur externe.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "disque dur externe"}, "action_plan": "disk_eject"},
-    {"instruction": "Cherche le fichier nommé 'password.txt'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Cherche", "NAME_SOURCE_ITEM": "password.txt"}, "action_plan": "search_by_name"},
-    {"instruction": "Montre-moi l'historique de ce fichier.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Montre-moi", "INFO_TYPE": "historique", "NAME_SOURCE_ITEM": "ce fichier"}, "action_plan": "action_view_history"},
-    {"instruction": "Modifie le fichier de configuration.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Modifie", "ITEM_TYPE": "fichier de configuration"}, "action_plan": "file_edit_content"},
-    {"instruction": "Crée un dossier 'Archives' sur le bureau.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Archives", "TARGET_LOCATION": "sur le bureau"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Trie les éléments par nom.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par nom"}, "action_plan": "display_by_name"},
-    {"instruction": "Copie le dossier 'Musique' sur la clé USB.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "NAME_SOURCE_ITEM": "dossier 'Musique'", "TARGET_LOCATION": "sur la clé USB"}, "action_plan": "fs_copy"},
-    {"instruction": "Lance l'application de comptabilité.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance", "ITEM_TYPE": "application de comptabilité"}, "action_plan": "file_open"},
-    {"instruction": "Prévisualise le PDF.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Prévisualise", "ITEM_TYPE": "PDF"}, "action_plan": "file_preview"},
-    {"instruction": "Supprime 'vacances.avi' sans passer par la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "NAME_SOURCE_ITEM": "vacances.avi", "DELETION_TYPE": "sans passer par la corbeille"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Recherche les fichiers contenant 'client'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "client", "SEARCH_SCOPE": "contenu"}, "action_plan": "search_by_content"},
-    {"instruction": "Affiche les fichiers par type.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Affiche", "SORT_CRITERIA": "par type"}, "action_plan": "display_by_type"},
-    {"instruction": "Déplace ça vers 'Mes Documents'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "ça", "TARGET_LOCATION": "Mes Documents"}, "action_plan": "fs_move"},
-    {"instruction": "Extrais le fichier ZIP ici.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "fichier ZIP", "TARGET_LOCATION": "ici"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Synchronise avec le cloud.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "TARGET_LOCATION": "avec le cloud"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Ouvre le tableur.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "tableur"}, "action_plan": "file_open"},
-    {"instruction": "Renomme ce répertoire en 'Old'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "répertoire", "NAME_DESTINATION_ITEM": "Old"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Recherche les scripts Python.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": "scripts Python"}, "action_plan": "search_by_type"},
-    {"instruction": "Envoie le dossier compressé à Jean.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "ITEM_TYPE": "dossier compressé", "TARGET_LOCATION": "à Jean"}, "action_plan": "action_send_message"},
-    {"instruction": "Affiche l'espace libre.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "espace libre"}, "action_plan": "disk_view_space"},
-    {"instruction": "Crée un nouveau dossier 'Temp'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "nouveau dossier", "NAME_DESTINATION_ITEM": "Temp"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Imprime cette page.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "cette page"}, "action_plan": "action_print"},
-    {"instruction": "Supprime ce raccourci.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "ITEM_TYPE": "raccourci", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Restaure le dernier fichier supprimé.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Restaure", "ITEM_TYPE": "dernier fichier supprimé"}, "action_plan": "fs_restore"},
-    {"instruction": "Édite le fichier 'hosts'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Édite", "NAME_SOURCE_ITEM": "hosts"}, "action_plan": "file_edit_content"},
-    {"instruction": "Copie les photos vers le disque D.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "ITEM_TYPE": "photos", "TARGET_LOCATION": "disque D"}, "action_plan": "fs_copy"},
-    {"instruction": "Connecte le lecteur réseau.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Connecte", "ITEM_TYPE": "lecteur réseau"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Trouve le fichier 'contrat.pdf'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trouve", "NAME_SOURCE_ITEM": "contrat.pdf"}, "action_plan": "search_by_name"},
-    {"instruction": "Fais un aperçu de l'image.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Fais un aperçu", "ITEM_TYPE": "image"}, "action_plan": "file_preview"},
-    {"instruction": "Déplace le fichier log dans le dossier System.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "fichier log", "TARGET_LOCATION": "dossier System"}, "action_plan": "fs_move"},
-    {"instruction": "Supprime définitivement ce dossier.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "DELETION_TYPE": "définitivement", "OBJECT_TYPE": "dossier"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Renomme le fichier 'test' en 'prod'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "NAME_SOURCE_ITEM": "test", "NAME_DESTINATION_ITEM": "prod"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Recherche les fichiers Excel.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": "fichiers Excel"}, "action_plan": "search_by_type"},
-    {"instruction": "Trie par pertinence.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par pertinence"}, "action_plan": "display_by_content"},
-    {"instruction": "Lance une session de nettoyage.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance", "ITEM_TYPE": "session de nettoyage"}, "action_plan": "action_run_session"},
-    {"instruction": "Éjecte la carte SD.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "carte SD"}, "action_plan": "disk_eject"},
-    {"instruction": "Synchronise mes documents.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "mes documents"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Ouvre le fichier lisez-moi.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "NAME_SOURCE_ITEM": "lisez-moi"}, "action_plan": "file_open"},
-    {"instruction": "Crée un dossier nommé 'Personnel'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Personnel"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Affiche les versions précédentes.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "versions précédentes"}, "action_plan": "action_view_history"},
-    {"instruction": "Recherche 'facture' dans le texte.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "facture", "SEARCH_SCOPE": "texte"}, "action_plan": "search_by_content"},
-    {"instruction": "Déplace tout vers le dossier parent.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "tout", "TARGET_LOCATION": "dossier parent"}, "action_plan": "fs_move"},
-    {"instruction": "Supprime le fichier sélectionné.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "NAME_SOURCE_ITEM": "fichier sélectionné", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Extrais l'archive ici.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "archive", "TARGET_LOCATION": "ici"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Renomme le dossier 'New Folder' en 'Projet Beta'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_SOURCE_ITEM": "New Folder", "NAME_DESTINATION_ITEM": "Projet Beta"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Cherche par nom de fichier.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Cherche", "SEARCH_METHOD": "par nom"}, "action_plan": "search_by_name"},
-    {"instruction": "Copie ce document dans 'Mes Images'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "NAME_SOURCE_ITEM": "ce document", "TARGET_LOCATION": "Mes Images"}, "action_plan": "fs_copy"},
-    {"instruction": "Monte le volume 'Data'.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Monte", "DEVICE_TARGET": "volume 'Data'"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Affiche la capacité du disque.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "capacité du disque"}, "action_plan": "disk_view_space"},
-    {"instruction": "Envoie le fichier log au support IT.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "NAME_SOURCE_ITEM": "fichier log", "TARGET_LOCATION": "au support IT"}, "action_plan": "action_send_message"},
-    {"instruction": "Ouvre 'rapport.pdf'.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "NAME_SOURCE_ITEM": "rapport.pdf"}, "action_plan": "file_open"},
-    {"instruction": "Modifie le texte de ce fichier.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Modifie", "ITEM_TYPE": "texte", "NAME_SOURCE_ITEM": "ce fichier"}, "action_plan": "file_edit_content"},
-    {"instruction": "Recherche les fichiers MP3.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": "fichiers MP3"}, "action_plan": "search_by_type"},
-    {"instruction": "Supprime les fichiers doublons.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "ITEM_TYPE": "fichiers doublons", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Crée un répertoire 'Musique'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "répertoire", "NAME_DESTINATION_ITEM": "Musique"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Trie les fichiers par extension.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par extension"}, "action_plan": "display_by_type"},
-    {"instruction": "Prévisualise la vidéo.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Prévisualise", "ITEM_TYPE": "vidéo"}, "action_plan": "file_preview"},
-    {"instruction": "Restaure depuis la corbeille.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Restaure", "TARGET_LOCATION": "depuis la corbeille"}, "action_plan": "fs_restore"},
-    {"instruction": "Éjecte le lecteur DVD.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "lecteur DVD"}, "action_plan": "disk_eject"},
-    {"instruction": "Synchronise les dossiers de travail.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "dossiers de travail"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Renomme 'image.png' en 'vacances.png'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "NAME_SOURCE_ITEM": "image.png", "NAME_DESTINATION_ITEM": "vacances.png"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Imprime le fichier sélectionné.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "fichier sélectionné"}, "action_plan": "action_print"},
-    {"instruction": "Copie le rapport sur le serveur.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "NAME_SOURCE_ITEM": "rapport", "TARGET_LOCATION": "sur le serveur"}, "action_plan": "fs_copy"},
-    {"instruction": "Recherche 'note' dans les fichiers.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "note", "SEARCH_SCOPE": "dans les fichiers"}, "action_plan": "search_by_content"},
-    {"instruction": "Affiche l'historique des modifications.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "historique des modifications"}, "action_plan": "action_view_history"},
-    {"instruction": "Supprime ce dossier définitivement.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "DELETION_TYPE": "définitivement", "OBJECT_TYPE": "dossier"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Déplace les fichiers dans 'Archive'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "fichiers", "TARGET_LOCATION": "Archive"}, "action_plan": "fs_move"},
-    {"instruction": "Extrais le fichier RAR.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "fichier RAR"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Ouvre le programme.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "programme"}, "action_plan": "action_run_session"},
-    {"instruction": "Crée un dossier 'Images'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Images"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Trie par nom de fichier.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par nom"}, "action_plan": "display_by_name"},
-    {"instruction": "Modifie le script.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Modifie", "ITEM_TYPE": "script"}, "action_plan": "file_edit_content"},
-    {"instruction": "Recherche les présentations.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "ITEM_TYPE": "présentations"}, "action_plan": "search_by_type"},
-    {"instruction": "Envoie le devis par mail.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "NAME_SOURCE_ITEM": "devis", "TARGET_LOCATION": "par mail"}, "action_plan": "action_send_message"},
-    {"instruction": "Connecte le disque réseau.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Connecte", "DEVICE_TARGET": "disque réseau"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Renomme le dossier 'TODO' en 'Done'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_SOURCE_ITEM": "TODO", "NAME_DESTINATION_ITEM": "Done"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Affiche l'utilisation du disque.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "utilisation du disque"}, "action_plan": "disk_view_space"},
-    {"instruction": "Lance l'exécutable.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance", "ITEM_TYPE": "exécutable"}, "action_plan": "action_run_session"},
-    {"instruction": "Jette ça à la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Jette", "NAME_SOURCE_ITEM": "ça", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Crée un nouveau dossier pour le projet Beta.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "projet Beta"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Ouvre le fichier 'setup.exe'.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "NAME_SOURCE_ITEM": "setup.exe"}, "action_plan": "file_open"},
-    {"instruction": "Donne-moi un aperçu de cette image sans l'ouvrir.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Donne-moi un aperçu", "ITEM_TYPE": "image"}, "action_plan": "file_preview"},
-    {"instruction": "Change le nom du fichier 'brouillon.txt' en 'final.txt'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Change le nom", "OBJECT_TYPE": "fichier", "NAME_SOURCE_ITEM": "brouillon.txt", "NAME_DESTINATION_ITEM": "final.txt"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Renomme le répertoire 'Images' en 'Assets'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "répertoire", "NAME_SOURCE_ITEM": "Images", "NAME_DESTINATION_ITEM": "Assets"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Ajoute du texte à ce fichier de log.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Ajoute", "ITEM_TYPE": "texte", "NAME_SOURCE_ITEM": "fichier de log"}, "action_plan": "file_edit_content"},
-    {"instruction": "Copie 'rapport.pdf' vers le lecteur D.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Copie", "NAME_SOURCE_ITEM": "rapport.pdf", "TARGET_LOCATION": "lecteur D"}, "action_plan": "fs_copy"},
-    {"instruction": "Déplace ce dossier dans 'Archives 2023'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "OBJECT_TYPE": "dossier", "TARGET_LOCATION": "Archives 2023"}, "action_plan": "fs_move"},
-    {"instruction": "Mets ce document à la corbeille.", "intention": "DELETE", "slots": {"ACTION_VERB": "Mets", "ITEM_TYPE": "document", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Détruis ce fichier confidentiel définitivement.", "intention": "DELETE", "slots": {"ACTION_VERB": "Détruis", "ITEM_TYPE": "fichier confidentiel", "DELETION_TYPE": "définitivement"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Restaure le fichier supprimé par erreur.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Restaure", "ITEM_TYPE": "fichier supprimé"}, "action_plan": "fs_restore"},
-    {"instruction": "Décompresse 'archive.zip' ici.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Décompresse", "NAME_SOURCE_ITEM": "archive.zip", "TARGET_LOCATION": "ici"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Cherche le dossier 'Finance'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Cherche", "OBJECT_TYPE": "dossier", "NAME_SOURCE_ITEM": "Finance"}, "action_plan": "search_by_name"},
-    {"instruction": "Trouve tous les fichiers .mp4.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trouve", "ITEM_TYPE": ".mp4"}, "action_plan": "search_by_type"},
-    {"instruction": "Cherche les documents qui contiennent 'Urgent'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Cherche", "SEARCH_SCOPE": "contenu", "NAME_SOURCE_ITEM": "Urgent"}, "action_plan": "search_by_content"},
-    {"instruction": "Classe les fichiers par ordre alphabétique.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Classe", "SORT_CRITERIA": "ordre alphabétique"}, "action_plan": "display_by_name"},
-    {"instruction": "Groupe les éléments par extension.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Groupe", "SORT_CRITERIA": "par extension"}, "action_plan": "display_by_type"},
-    {"instruction": "Affiche les résultats les plus pertinents.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Affiche", "SORT_CRITERIA": "plus pertinents"}, "action_plan": "display_by_content"},
-    {"instruction": "Connecte le lecteur réseau de l'entreprise.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Connecte", "DEVICE_TARGET": "lecteur réseau"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Synchronise mes photos avec le cloud.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "mes photos", "TARGET_LOCATION": "avec le cloud"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Éjecte la clé USB en toute sécurité.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "clé USB"}, "action_plan": "disk_eject"},
-    {"instruction": "Combien d'espace libre reste-t-il sur C: ?", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Combien d'espace libre", "DEVICE_TARGET": "sur C:"}, "action_plan": "disk_view_space"},
-    {"instruction": "Envoie 'contrat_signé.pdf' par email à Alice.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "NAME_SOURCE_ITEM": "contrat_signé.pdf", "TARGET_LOCATION": "à Alice"}, "action_plan": "action_send_message"},
-    {"instruction": "Qui a modifié ce fichier en dernier ?", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Qui a modifié", "INFO_TYPE": "historique", "NAME_SOURCE_ITEM": "ce fichier"}, "action_plan": "action_view_history"},
-    {"instruction": "Lance l'impression du ticket.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance l'impression", "NAME_SOURCE_ITEM": "ticket"}, "action_plan": "action_print"},
-    {"instruction": "Démarre une session de code.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Démarre", "ITEM_TYPE": "session de code"}, "action_plan": "action_run_session"},
-    {"instruction": "Crée un dossier 'Musique 2024'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Crée", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Musique 2024"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Exécute le script 'backup.py'.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Exécute", "NAME_SOURCE_ITEM": "backup.py"}, "action_plan": "file_open"},
-    {"instruction": "Prévisualise le contenu du CSV.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Prévisualise", "ITEM_TYPE": "CSV"}, "action_plan": "file_preview"},
-    {"instruction": "Renomme 'old_data.json' en 'data.json'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "NAME_SOURCE_ITEM": "old_data.json", "NAME_DESTINATION_ITEM": "data.json"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Renomme ce dossier en 'Projets Terminés'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Projets Terminés"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Modifie le fichier config.ini.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Modifie", "NAME_SOURCE_ITEM": "config.ini"}, "action_plan": "file_edit_content"},
-    {"instruction": "Duplique ce fichier dans le même dossier.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Duplique", "NAME_SOURCE_ITEM": "ce fichier", "TARGET_LOCATION": "dans le même dossier"}, "action_plan": "fs_copy"},
-    {"instruction": "Déplace les photos vers le disque externe.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "ITEM_TYPE": "photos", "TARGET_LOCATION": "disque externe"}, "action_plan": "fs_move"},
-    {"instruction": "Supprime le raccourci.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "ITEM_TYPE": "raccourci", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Supprime définitivement les logs obsolètes.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "DELETION_TYPE": "définitivement", "ITEM_TYPE": "logs obsolètes"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Récupère le document depuis la corbeille.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Récupère", "ITEM_TYPE": "document", "TARGET_LOCATION": "depuis la corbeille"}, "action_plan": "fs_restore"},
-    {"instruction": "Extrais l'installateur.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Extrais", "ITEM_TYPE": "installateur"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Recherche le fichier 'CV.docx'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "CV.docx"}, "action_plan": "search_by_name"},
-    {"instruction": "Liste tous les fichiers PDF.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Liste", "ITEM_TYPE": "fichiers PDF"}, "action_plan": "search_by_type"},
-    {"instruction": "Trouve les fichiers contenant 'facture' dans le texte.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trouve", "NAME_SOURCE_ITEM": "facture", "SEARCH_SCOPE": "dans le texte"}, "action_plan": "search_by_content"},
-    {"instruction": "Affiche les dossiers par nom.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Affiche", "OBJECT_TYPE": "dossiers", "SORT_CRITERIA": "par nom"}, "action_plan": "display_by_name"},
-    {"instruction": "Trie l'affichage par type de fichier.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "SORT_CRITERIA": "par type"}, "action_plan": "display_by_type"},
-    {"instruction": "Affiche par pertinence.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Affiche", "SORT_CRITERIA": "par pertinence"}, "action_plan": "display_by_content"},
-    {"instruction": "Monte le volume 'Sauvegardes'.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Monte", "DEVICE_TARGET": "volume 'Sauvegardes'"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Mets à jour le dossier Dropbox.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Mets à jour", "ITEM_TYPE": "dossier Dropbox"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Retire le disque dur.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Retire", "DEVICE_TARGET": "disque dur"}, "action_plan": "disk_eject"},
-    {"instruction": "Vérifie l'espace disque disponible.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Vérifie", "INFO_TYPE": "espace disque disponible"}, "action_plan": "disk_view_space"},
-    {"instruction": "Partage cette vidéo par message.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Partage", "ITEM_TYPE": "cette vidéo", "TARGET_LOCATION": "par message"}, "action_plan": "action_send_message"},
-    {"instruction": "Affiche l'historique des accès.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Affiche", "INFO_TYPE": "historique des accès"}, "action_plan": "action_view_history"},
-    {"instruction": "Imprime le formulaire.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "formulaire"}, "action_plan": "action_print"},
-    {"instruction": "Lance Firefox.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Lance", "NAME_SOURCE_ITEM": "Firefox"}, "action_plan": "action_run_session"},
-    {"instruction": "Génère un dossier 'Temp'.", "intention": "CREATE", "slots": {"ACTION_VERB": "Génère", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Temp"}, "action_plan": "fs_create_folder"},
-    {"instruction": "Ouvre la chanson.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Ouvre", "ITEM_TYPE": "chanson"}, "action_plan": "file_open"},
-    {"instruction": "Prévisualise le README.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Prévisualise", "NAME_SOURCE_ITEM": "README"}, "action_plan": "file_preview"},
-    {"instruction": "Renomme 'img001.jpg' en 'photo_profil.jpg'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "NAME_SOURCE_ITEM": "img001.jpg", "NAME_DESTINATION_ITEM": "photo_profil.jpg"}, "action_plan": "fs_rename_file"},
-    {"instruction": "Renomme ce dossier en 'Personnel'.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Renomme", "OBJECT_TYPE": "dossier", "NAME_DESTINATION_ITEM": "Personnel"}, "action_plan": "fs_rename_folder"},
-    {"instruction": "Édite les notes de version.", "intention": "MANIPULATE", "slots": {"ACTION_VERB": "Édite", "ITEM_TYPE": "notes de version"}, "action_plan": "file_edit_content"},
-    {"instruction": "Fais une copie de sauvegarde sur le serveur.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Fais une copie", "TARGET_LOCATION": "sur le serveur"}, "action_plan": "fs_copy"},
-    {"instruction": "Déplace le fichier vers 'Mes Documents'.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Déplace", "NAME_SOURCE_ITEM": "fichier", "TARGET_LOCATION": "Mes Documents"}, "action_plan": "fs_move"},
-    {"instruction": "Supprime ce fichier temporaire.", "intention": "DELETE", "slots": {"ACTION_VERB": "Supprime", "ITEM_TYPE": "fichier temporaire", "DELETION_TYPE": "corbeille"}, "action_plan": "fs_delete_trash"},
-    {"instruction": "Efface le disque Z définitivement.", "intention": "DELETE", "slots": {"ACTION_VERB": "Efface", "DEVICE_TARGET": "disque Z", "DELETION_TYPE": "définitivement"}, "action_plan": "fs_delete_permanent"},
-    {"instruction": "Annule la suppression du dossier.", "intention": "MOVE_COPY", "slots": {"ACTION_VERB": "Annule la suppression", "OBJECT_TYPE": "dossier"}, "action_plan": "fs_restore"},
-    {"instruction": "Dézippe le fichier ici.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Dézippe", "ITEM_TYPE": "fichier", "TARGET_LOCATION": "ici"}, "action_plan": "fs_extract_archive"},
-    {"instruction": "Recherche 'presentation_final.ppt'.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "presentation_final.ppt"}, "action_plan": "search_by_name"},
-    {"instruction": "Cherche tous les exécutables.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Cherche", "ITEM_TYPE": "exécutables"}, "action_plan": "search_by_type"},
-    {"instruction": "Recherche le mot 'clé' dans les fichiers texte.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Recherche", "NAME_SOURCE_ITEM": "clé", "SEARCH_SCOPE": "dans les fichiers texte"}, "action_plan": "search_by_content"},
-    {"instruction": "Trie les photos par nom.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Trie", "ITEM_TYPE": "photos", "SORT_CRITERIA": "par nom"}, "action_plan": "display_by_name"},
-    {"instruction": "Classe par extension.", "intention": "SEARCH_SORT", "slots": {"ACTION_VERB": "Classe", "SORT_CRITERIA": "par extension"}, "action_plan": "display_by_type"},
-    {"instruction": "Monte le partage NFS.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Monte", "DEVICE_TARGET": "partage NFS"}, "action_plan": "net_mount_drive"},
-    {"instruction": "Synchronise les fichiers de travail avec le cloud.", "intention": "SYNC_CONNECT", "slots": {"ACTION_VERB": "Synchronise", "ITEM_TYPE": "fichiers de travail", "TARGET_LOCATION": "avec le cloud"}, "action_plan": "net_sync_folders"},
-    {"instruction": "Éjecte le disque amovible.", "intention": "FILE_MANAGEMENT", "slots": {"ACTION_VERB": "Éjecte", "DEVICE_TARGET": "disque amovible"}, "action_plan": "disk_eject"},
-    {"instruction": "Vérifie l'espace disponible sur le disque D:.", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Vérifie", "INFO_TYPE": "espace disponible", "DEVICE_TARGET": "sur le disque D:"}, "action_plan": "disk_view_space"},
-    {"instruction": "Envoie le rapport annuel à l'équipe.", "intention": "COMMUNICATE", "slots": {"ACTION_VERB": "Envoie", "NAME_SOURCE_ITEM": "rapport annuel", "TARGET_LOCATION": "à l'équipe"}, "action_plan": "action_send_message"},
-    {"instruction": "Qui a accédé à ce dossier récemment ?", "intention": "VIEW_INFO", "slots": {"ACTION_VERB": "Qui a accédé", "INFO_TYPE": "historique d'accès", "NAME_SOURCE_ITEM": "ce dossier"}, "action_plan": "action_view_history"},
-    {"instruction": "Imprime le document Word.", "intention": "EXECUTE", "slots": {"ACTION_VERB": "Imprime", "NAME_SOURCE_ITEM": "document Word"}, "action_plan": "action_print"}
+  {
+    "instruction": "Crée un nouveau dossier nommé Projets Alpha.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "dossier",
+      "NAME_DESTINATION_ITEM": "Projets Alpha"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Fais un répertoire pour les archives.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Fais",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_DESTINATION_ITEM": "archives"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Crée un fichier texte vide.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "fichier texte"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Génère un nouveau document ici.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Génère",
+      "OBJECT_TYPE": "nouveau document",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Crée un dossier 'Images' sur le bureau.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "dossier",
+      "NAME_DESTINATION_ITEM": "Images",
+      "TARGET_LOCATION": "sur le bureau"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Ajoute un fichier 'notes.txt'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Ajoute",
+      "OBJECT_TYPE": "fichier",
+      "NAME_DESTINATION_ITEM": "notes.txt"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Ouvre le fichier budget.xlsx.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "budget.xlsx"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Lance Photoshop maintenant.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance",
+      "NAME_SOURCE_ITEM": "Photoshop"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Imprime le contrat immédiatement.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Imprime",
+      "NAME_SOURCE_ITEM": "contrat"
+    },
+    "action_plan": "action_print"
+  },
+  {
+    "instruction": "Exécute le script main.py.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Exécute",
+      "ITEM_TYPE": "script",
+      "NAME_SOURCE_ITEM": "main.py"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Ouvre ce PDF.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "ITEM_TYPE": "PDF"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Lance la présentation PowerPoint.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance",
+      "ITEM_TYPE": "présentation PowerPoint"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Affiche l'espace libre sur le disque.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "INFO_TYPE": "espace libre",
+      "DEVICE_TARGET": "sur le disque"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Prévisualise cette image.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Prévisualise",
+      "ITEM_TYPE": "image"
+    },
+    "action_plan": "file_preview"
+  },
+  {
+    "instruction": "Montre l'historique du fichier.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Montre",
+      "INFO_TYPE": "historique",
+      "OBJECT_TYPE": "fichier"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Quelle est la taille du disque C ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "INFO_TYPE": "taille",
+      "DEVICE_TARGET": "disque C"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Donne un aperçu du document.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Donne un aperçu",
+      "OBJECT_TYPE": "document"
+    },
+    "action_plan": "file_preview"
+  },
+  {
+    "instruction": "Qui a modifié ce rapport ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "modifié",
+      "NAME_SOURCE_ITEM": "ce rapport"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Renomme ce dossier en Backup.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "dossier",
+      "NAME_DESTINATION_ITEM": "Backup"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Change le nom de photo.jpg en vacances.jpg.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Change le nom",
+      "NAME_SOURCE_ITEM": "photo.jpg",
+      "NAME_DESTINATION_ITEM": "vacances.jpg"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Édite le fichier hosts.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Édite",
+      "NAME_SOURCE_ITEM": "hosts"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Modifie le contenu du fichier texte.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Modifie",
+      "OBJECT_TYPE": "fichier texte"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Renomme le répertoire Old en Archives.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_SOURCE_ITEM": "Old",
+      "NAME_DESTINATION_ITEM": "Archives"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Ajoute une ligne au log.txt.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Ajoute",
+      "NAME_SOURCE_ITEM": "log.txt"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Copie ce fichier sur la clé USB.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "OBJECT_TYPE": "fichier",
+      "DEVICE_TARGET": "sur la clé USB"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Déplace les photos vers le NAS.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Déplace",
+      "ITEM_TYPE": "photos",
+      "TARGET_LOCATION": "vers le NAS"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Restaure le dossier supprimé.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Restaure",
+      "OBJECT_TYPE": "dossier"
+    },
+    "action_plan": "fs_restore"
+  },
+  {
+    "instruction": "Duplique le rapport ici.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Duplique",
+      "NAME_SOURCE_ITEM": "rapport",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Mets ce PDF dans Documents.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Mets",
+      "ITEM_TYPE": "PDF",
+      "TARGET_LOCATION": "dans Documents"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Copie le dossier Images sur D:.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "Images",
+      "DEVICE_TARGET": "sur D:"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Supprime ce dossier.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "OBJECT_TYPE": "dossier"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Vide la corbeille.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Vide",
+      "DELETION_TYPE": "corbeille"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Efface définitivement ce fichier.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Efface",
+      "OBJECT_TYPE": "fichier",
+      "DELETION_TYPE": "définitivement"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Jette ces photos.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Jette",
+      "ITEM_TYPE": "photos"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Supprime le fichier temp.log.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "NAME_SOURCE_ITEM": "temp.log"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Mets à la poubelle ce document.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Mets",
+      "OBJECT_TYPE": "document",
+      "DELETION_TYPE": "à la poubelle"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Extrais le ZIP ici.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Extrais",
+      "ITEM_TYPE": "ZIP",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Éjecte la clé USB.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Éjecte",
+      "DEVICE_TARGET": "clé USB"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Décompresse l'archive.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Décompresse",
+      "ITEM_TYPE": "archive"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Retire le disque externe.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Retire",
+      "DEVICE_TARGET": "disque externe"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Dézippe data.rar dans le dossier Data.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Dézippe",
+      "NAME_SOURCE_ITEM": "data.rar",
+      "TARGET_LOCATION": "dans le dossier Data"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Éjecte le lecteur D.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Éjecte",
+      "DEVICE_TARGET": "lecteur D"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Recherche les fichiers PDF.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "fichiers PDF"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Trie par date.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trie",
+      "SORT_CRITERIA": "par date"
+    },
+    "action_plan": "display_by_content"
+  },
+  {
+    "instruction": "Trouve le document budget.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trouve",
+      "NAME_SOURCE_ITEM": "budget"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Cherche 'urgent' dans les mails.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Cherche",
+      "NAME_SOURCE_ITEM": "urgent",
+      "SEARCH_SCOPE": "dans les mails"
+    },
+    "action_plan": "search_by_content"
+  },
+  {
+    "instruction": "Affiche les photos par taille.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "ITEM_TYPE": "photos",
+      "SORT_CRITERIA": "par taille"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Recherche les mp3.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "mp3"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Envoie ce fichier à Paul.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "OBJECT_TYPE": "fichier",
+      "TARGET_LOCATION": "à Paul"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Partage la photo par mail.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Partage",
+      "ITEM_TYPE": "photo",
+      "TARGET_LOCATION": "par mail"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie le rapport au patron.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "rapport",
+      "TARGET_LOCATION": "au patron"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Maile ce document à l'équipe.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Maile",
+      "OBJECT_TYPE": "document",
+      "TARGET_LOCATION": "à l'équipe"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Transfère le zip par message.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Transfère",
+      "ITEM_TYPE": "zip",
+      "TARGET_LOCATION": "par message"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie meeting.txt à Alice.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "meeting.txt",
+      "TARGET_LOCATION": "à Alice"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Synchronise le Drive.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Synchronise",
+      "ITEM_TYPE": "Drive"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Connecte le lecteur Z.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Connecte",
+      "DEVICE_TARGET": "lecteur Z"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Monte le disque réseau.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Monte",
+      "DEVICE_TARGET": "disque réseau"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Mets à jour le cloud.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Mets à jour",
+      "TARGET_LOCATION": "le cloud"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Synchronise les dossiers partagés.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Synchronise",
+      "OBJECT_TYPE": "dossiers partagés"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Connecte le serveur de fichiers.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Connecte",
+      "DEVICE_TARGET": "serveur de fichiers"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Crée un nouveau répertoire nommé 'Clients 2024'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_DESTINATION_ITEM": "Clients 2024"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Fais un fichier texte pour le brouillon.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Fais",
+      "OBJECT_TYPE": "fichier texte",
+      "NAME_DESTINATION_ITEM": "brouillon"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Génère un dossier vide ici.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Génère",
+      "OBJECT_TYPE": "dossier vide",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Crée une nouvelle note 'Idées'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "nouvelle note",
+      "NAME_DESTINATION_ITEM": "Idées"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Ajoute un répertoire 'Privé' sur le disque D.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Ajoute",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_DESTINATION_ITEM": "Privé",
+      "TARGET_LOCATION": "sur le disque D"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Crée le fichier 'config.json'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "fichier",
+      "NAME_DESTINATION_ITEM": "config.json"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Fais un sous-dossier 'Images'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Fais",
+      "OBJECT_TYPE": "sous-dossier",
+      "NAME_DESTINATION_ITEM": "Images"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Crée un document Word vierge.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "ITEM_TYPE": "document Word"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Nouveau dossier 'Projet Omega'.",
+    "intention": "CREATE",
+    "slots": {
+      "OBJECT_TYPE": "Nouveau dossier",
+      "NAME_DESTINATION_ITEM": "Projet Omega"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Crée une liste de tâches.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "liste de tâches"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Ouvre le navigateur.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "navigateur"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Lance la calculatrice.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance",
+      "NAME_SOURCE_ITEM": "calculatrice"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Imprime cette facture PDF.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Imprime",
+      "ITEM_TYPE": "facture PDF"
+    },
+    "action_plan": "action_print"
+  },
+  {
+    "instruction": "Exécute le fichier batch.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Exécute",
+      "ITEM_TYPE": "fichier batch"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Ouvre 'presentation.pptx'.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "presentation.pptx"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Joue la playlist 'Focus'.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Joue",
+      "NAME_SOURCE_ITEM": "playlist 'Focus'"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Lance l'installation.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance",
+      "NAME_SOURCE_ITEM": "installation"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Imprime le fichier sélectionné en noir et blanc.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Imprime",
+      "NAME_SOURCE_ITEM": "fichier sélectionné"
+    },
+    "action_plan": "action_print"
+  },
+  {
+    "instruction": "Ouvre le gestionnaire de tâches.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "gestionnaire de tâches"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Exécute 'run_test.sh'.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Exécute",
+      "NAME_SOURCE_ITEM": "run_test.sh"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Quelle est la taille de ce dossier ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "INFO_TYPE": "taille",
+      "OBJECT_TYPE": "dossier"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Affiche les propriétés du fichier.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "INFO_TYPE": "propriétés",
+      "OBJECT_TYPE": "fichier"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Prévisualise le contenu sans ouvrir.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Prévisualise",
+      "SEARCH_SCOPE": "contenu"
+    },
+    "action_plan": "file_preview"
+  },
+  {
+    "instruction": "Date de création de 'rapport.docx' ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "INFO_TYPE": "Date de création",
+      "NAME_SOURCE_ITEM": "rapport.docx"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Vérifie l'espace sur la clé USB.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Vérifie",
+      "INFO_TYPE": "espace",
+      "DEVICE_TARGET": "clé USB"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Montre l'auteur du document.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Montre",
+      "INFO_TYPE": "auteur",
+      "OBJECT_TYPE": "document"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Affiche un aperçu de la vidéo.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Affiche un aperçu",
+      "ITEM_TYPE": "vidéo"
+    },
+    "action_plan": "file_preview"
+  },
+  {
+    "instruction": "Combien de fichiers dans ce répertoire ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "INFO_TYPE": "Combien de fichiers",
+      "OBJECT_TYPE": "répertoire"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Qui a ouvert ce fichier en dernier ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "INFO_TYPE": "Qui a ouvert",
+      "NAME_SOURCE_ITEM": "ce fichier"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Donne-moi les métadonnées de l'image.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Donne-moi",
+      "INFO_TYPE": "métadonnées",
+      "ITEM_TYPE": "image"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Renomme le dossier 'Temp' en 'Cache'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "Temp",
+      "NAME_DESTINATION_ITEM": "Cache"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Modifie le titre du document.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Modifie",
+      "INFO_TYPE": "titre",
+      "OBJECT_TYPE": "document"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Ajoute 'Confidentiel' au début du fichier.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Ajoute",
+      "NAME_SOURCE_ITEM": "Confidentiel",
+      "TARGET_LOCATION": "au début du fichier"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Renomme 'cv_v1.pdf' en 'cv_final.pdf'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "NAME_SOURCE_ITEM": "cv_v1.pdf",
+      "NAME_DESTINATION_ITEM": "cv_final.pdf"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Corrige le texte dans 'note.txt'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Corrige",
+      "SEARCH_SCOPE": "texte",
+      "NAME_SOURCE_ITEM": "note.txt"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Change l'extension en .bak.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Change",
+      "NAME_DESTINATION_ITEM": ".bak"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Renomme le répertoire courant en 'Projet Z'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "répertoire courant",
+      "NAME_DESTINATION_ITEM": "Projet Z"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Mets à jour le contenu du script.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Mets à jour",
+      "SEARCH_SCOPE": "contenu",
+      "ITEM_TYPE": "script"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Renomme tous les fichiers en 'backup_x'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "tous les fichiers",
+      "NAME_DESTINATION_ITEM": "backup_x"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Édite le fichier de paramètres.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Édite",
+      "ITEM_TYPE": "fichier de paramètres"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Déplace 'logo.png' vers le dossier 'Web'.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Déplace",
+      "NAME_SOURCE_ITEM": "logo.png",
+      "TARGET_LOCATION": "dossier 'Web'"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Copie tout le dossier sur le disque externe.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "OBJECT_TYPE": "tout le dossier",
+      "DEVICE_TARGET": "sur le disque externe"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Restaure le fichier depuis la corbeille.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Restaure",
+      "OBJECT_TYPE": "fichier",
+      "TARGET_LOCATION": "depuis la corbeille"
+    },
+    "action_plan": "fs_restore"
+  },
+  {
+    "instruction": "Fais un backup de ce fichier ici.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Fais un backup",
+      "NAME_SOURCE_ITEM": "ce fichier",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Transfère les vidéos vers le serveur.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Transfère",
+      "ITEM_TYPE": "vidéos",
+      "TARGET_LOCATION": "vers le serveur"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Copie le répertoire vers 'Archives'.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "OBJECT_TYPE": "répertoire",
+      "TARGET_LOCATION": "vers 'Archives'"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Déplace les éléments sélectionnés dans 'Trier'.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Déplace",
+      "NAME_SOURCE_ITEM": "éléments sélectionnés",
+      "TARGET_LOCATION": "dans 'Trier'"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Duplique la photo.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Duplique",
+      "ITEM_TYPE": "photo"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Remets ce fichier à sa place d'origine.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Remets",
+      "NAME_SOURCE_ITEM": "ce fichier",
+      "TARGET_LOCATION": "à sa place d'origine"
+    },
+    "action_plan": "fs_restore"
+  },
+  {
+    "instruction": "Bouge le dossier 'Jeu' vers D:.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Bouge",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "Jeu",
+      "DEVICE_TARGET": "vers D:"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Supprime le dossier 'Old'.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "Old"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Efface définitivement les fichiers temporaires.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Efface",
+      "DELETION_TYPE": "définitivement",
+      "ITEM_TYPE": "fichiers temporaires"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Vide le dossier Corbeille.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Vide",
+      "OBJECT_TYPE": "dossier Corbeille"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Jette ce raccourci.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Jette",
+      "ITEM_TYPE": "raccourci"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Supprime 'virus.exe' immédiatement.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "NAME_SOURCE_ITEM": "virus.exe",
+      "DELETION_TYPE": "immédiatement"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Mets les logs à la poubelle.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Mets",
+      "ITEM_TYPE": "logs",
+      "DELETION_TYPE": "à la poubelle"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Détruis le fichier confidentiel.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Détruis",
+      "OBJECT_TYPE": "fichier confidentiel"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Supprime le répertoire vide.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "OBJECT_TYPE": "répertoire vide"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Nettoie la corbeille.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Nettoie",
+      "DELETION_TYPE": "corbeille"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Supprime tout le contenu du dossier.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "OBJECT_TYPE": "tout le contenu du dossier"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Extrais l'archive 'data.zip'.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Extrais",
+      "ITEM_TYPE": "archive",
+      "NAME_SOURCE_ITEM": "data.zip"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Éjecte le CD-ROM.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Éjecte",
+      "DEVICE_TARGET": "CD-ROM"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Dézippe tout ici.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Dézippe",
+      "NAME_SOURCE_ITEM": "tout",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Retire le périphérique USB.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Retire",
+      "DEVICE_TARGET": "périphérique USB"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Compresse ce dossier en ZIP.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Compresse",
+      "OBJECT_TYPE": "dossier",
+      "ITEM_TYPE": "ZIP"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Ouvre le fichier RAR.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "ITEM_TYPE": "fichier RAR"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Éjecte la carte mémoire.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Éjecte",
+      "DEVICE_TARGET": "carte mémoire"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Décompresse le dossier compressé.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Décompresse",
+      "ITEM_TYPE": "dossier compressé"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Retire le disque dur externe.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Retire",
+      "DEVICE_TARGET": "disque dur externe"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Extrais les fichiers ici.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Extrais",
+      "OBJECT_TYPE": "fichiers",
+      "TARGET_LOCATION": "ici"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Cherche le fichier 'vacances.jpg'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Cherche",
+      "NAME_SOURCE_ITEM": "vacances.jpg"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Trie les documents par date de modification.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trie",
+      "OBJECT_TYPE": "documents",
+      "SORT_CRITERIA": "par date de modification"
+    },
+    "action_plan": "display_by_content"
+  },
+  {
+    "instruction": "Recherche tous les fichiers Excel.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "fichiers Excel"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Affiche les résultats par ordre alphabétique.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "SORT_CRITERIA": "ordre alphabétique"
+    },
+    "action_plan": "display_by_name"
+  },
+  {
+    "instruction": "Trouve les fichiers contenant 'projet'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trouve",
+      "NAME_SOURCE_ITEM": "projet",
+      "SEARCH_SCOPE": "contenant"
+    },
+    "action_plan": "search_by_content"
+  },
+  {
+    "instruction": "Filtre par type de fichier.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Filtre",
+      "SORT_CRITERIA": "par type de fichier"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Cherche dans le dossier 'Downloads'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Cherche",
+      "TARGET_LOCATION": "dans le dossier 'Downloads'"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Trie par taille décroissante.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trie",
+      "SORT_CRITERIA": "par taille décroissante"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Recherche les vidéos .mp4.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "vidéos .mp4"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Localise le fichier 'passwords.txt'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Localise",
+      "NAME_SOURCE_ITEM": "passwords.txt"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Envoie le devis par email.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "devis",
+      "TARGET_LOCATION": "par email"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Partage ce dossier avec l'équipe.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Partage",
+      "OBJECT_TYPE": "dossier",
+      "TARGET_LOCATION": "avec l'équipe"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Transfère 'photo.jpg' à Julie.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Transfère",
+      "NAME_SOURCE_ITEM": "photo.jpg",
+      "TARGET_LOCATION": "à Julie"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie le fichier log au support.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "fichier log",
+      "TARGET_LOCATION": "au support"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Mail le rapport mensuel.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Mail",
+      "NAME_SOURCE_ITEM": "rapport mensuel"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie ça par Slack.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "ça",
+      "TARGET_LOCATION": "par Slack"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Partage le lien du fichier.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Partage",
+      "OBJECT_TYPE": "lien du fichier"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie l'archive à la compta.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "ITEM_TYPE": "archive",
+      "TARGET_LOCATION": "à la compta"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Fais suivre le document à Marc.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Fais suivre",
+      "OBJECT_TYPE": "document",
+      "TARGET_LOCATION": "à Marc"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Envoie la facture par message.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "facture",
+      "TARGET_LOCATION": "par message"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Synchronise les fichiers avec le serveur.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Synchronise",
+      "OBJECT_TYPE": "fichiers",
+      "TARGET_LOCATION": "avec le serveur"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Monte le volume 'Data'.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Monte",
+      "DEVICE_TARGET": "volume 'Data'"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Connecte le lecteur réseau Y.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Connecte",
+      "DEVICE_TARGET": "lecteur réseau Y"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Mets à jour la Dropbox.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Mets à jour",
+      "ITEM_TYPE": "Dropbox"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Sync le dossier 'Projet'.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Sync",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "Projet"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Connecte le NAS.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Connecte",
+      "DEVICE_TARGET": "NAS"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Rafraîchis la connexion cloud.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Rafraîchis",
+      "ITEM_TYPE": "connexion cloud"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Monte l'image ISO.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Monte",
+      "ITEM_TYPE": "image ISO"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Synchronise tout maintenant.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Synchronise",
+      "NAME_SOURCE_ITEM": "tout",
+      "TIME_CRITERIA": "maintenant"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Connecte-toi au VPN.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Connecte-toi",
+      "DEVICE_TARGET": "au VPN"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Trouve moi le dernier fichier Word que j'ai ouvert.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Trouve moi",
+      "ITEM_TYPE": "fichier Word",
+      "SORT_CRITERIA": "dernier... ouvert"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Crée un dossier nommé 'Projets 2025' directement sur le Bureau.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "dossier",
+      "NAME_DESTINATION_ITEM": "Projets 2025",
+      "TARGET_LOCATION": "sur le Bureau"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Je veux que tu copies toutes les photos de vacances sur le disque externe.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "copies",
+      "NAME_SOURCE_ITEM": "toutes les photos de vacances",
+      "DEVICE_TARGET": "sur le disque externe"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Recherche le document qui contient le mot 'budget' dans le dossier Finance.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "OBJECT_TYPE": "document",
+      "NAME_SOURCE_ITEM": "budget",
+      "SEARCH_SCOPE": "contient le mot",
+      "TARGET_LOCATION": "dans le dossier Finance"
+    },
+    "action_plan": "search_by_content"
+  },
+  {
+    "instruction": "Supprime définitivement le fichier 'erreur.log' sans passer par la corbeille.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "NAME_SOURCE_ITEM": "erreur.log",
+      "DELETION_TYPE": "sans passer par la corbeille"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Affiche-moi la liste des fichiers modifiés la semaine dernière.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Affiche-moi",
+      "OBJECT_TYPE": "liste des fichiers",
+      "TIME_CRITERIA": "modifiés la semaine dernière"
+    },
+    "action_plan": "display_by_content"
+  },
+  {
+    "instruction": "Ouvre la présentation PowerPoint du projet Alpha tout de suite.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "ITEM_TYPE": "présentation PowerPoint",
+      "NAME_SOURCE_ITEM": "projet Alpha",
+      "TIME_CRITERIA": "tout de suite"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Déplace le fichier 'rapport_final.pdf' vers le dossier Archives sur le serveur.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Déplace",
+      "NAME_SOURCE_ITEM": "rapport_final.pdf",
+      "TARGET_LOCATION": "vers le dossier Archives",
+      "DEVICE_TARGET": "sur le serveur"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Renomme le fichier 'tuto.avi' en 'tutoriel_complet.avi' s'il te plaît.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "NAME_SOURCE_ITEM": "tuto.avi",
+      "NAME_DESTINATION_ITEM": "tutoriel_complet.avi"
+    },
+    "action_plan": "fs_rename_file"
+  },
+  {
+    "instruction": "Montre-moi combien d'espace libre il reste sur le lecteur Z.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Montre-moi",
+      "INFO_TYPE": "combien d'espace libre",
+      "DEVICE_TARGET": "sur le lecteur Z"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Envoie le dossier compressé 'Logs' à l'administrateur système par mail.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "ITEM_TYPE": "dossier compressé",
+      "NAME_SOURCE_ITEM": "Logs",
+      "TARGET_LOCATION": "à l'administrateur système",
+      "SEARCH_METHOD": "par mail"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Extrais tout le contenu de l'archive ZIP dans un nouveau dossier ici.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Extrais",
+      "NAME_SOURCE_ITEM": "tout le contenu",
+      "ITEM_TYPE": "archive ZIP",
+      "TARGET_LOCATION": "dans un nouveau dossier ici"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Trie tous les fichiers de ce répertoire par ordre décroissant de taille.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trie",
+      "OBJECT_TYPE": "tous les fichiers",
+      "TARGET_LOCATION": "de ce répertoire",
+      "SORT_CRITERIA": "par ordre décroissant de taille"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Est-ce que tu peux synchroniser mes documents avec le cloud maintenant ?",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "synchroniser",
+      "ITEM_TYPE": "mes documents",
+      "TARGET_LOCATION": "avec le cloud",
+      "TIME_CRITERIA": "maintenant"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Retrouve le fichier Excel que j'ai créé hier matin.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Retrouve",
+      "ITEM_TYPE": "fichier Excel",
+      "TIME_CRITERIA": "créé hier matin"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Copie le dossier 'Musique' depuis le PC vers la clé USB.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "NAME_SOURCE_ITEM": "dossier 'Musique'",
+      "TARGET_LOCATION": "depuis le PC",
+      "DEVICE_TARGET": "vers la clé USB"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Lance l'impression du rapport annuel en double exemplaire.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance l'impression",
+      "NAME_SOURCE_ITEM": "rapport annuel"
+    },
+    "action_plan": "action_print"
+  },
+  {
+    "instruction": "Supprime tous les fichiers temporaires du dossier Téléchargements.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "ITEM_TYPE": "fichiers temporaires",
+      "TARGET_LOCATION": "du dossier Téléchargements"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Renomme le répertoire 'Nouvelle année' en '2025' sur le disque D.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_SOURCE_ITEM": "Nouvelle année",
+      "NAME_DESTINATION_ITEM": "2025",
+      "DEVICE_TARGET": "sur le disque D"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Affiche les détails de la dernière modification de ce fichier.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "INFO_TYPE": "détails de la dernière modification",
+      "NAME_SOURCE_ITEM": "ce fichier"
+    },
+    "action_plan": "action_view_history"
+  },
+  {
+    "instruction": "Crée un fichier texte nommé 'README' dans le dossier racine du projet.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "fichier texte",
+      "NAME_DESTINATION_ITEM": "README",
+      "TARGET_LOCATION": "dans le dossier racine du projet"
+    },
+    "action_plan": "fs_create_file"
+  },
+  {
+    "instruction": "Recherche tous les PDF contenant le mot 'Contrat' créés en 2024.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "PDF",
+      "NAME_SOURCE_ITEM": "Contrat",
+      "SEARCH_SCOPE": "contenant le mot",
+      "TIME_CRITERIA": "créés en 2024"
+    },
+    "action_plan": "search_by_content"
+  },
+  {
+    "instruction": "Éjecte le disque dur externe avant que je le débranche.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Éjecte",
+      "DEVICE_TARGET": "disque dur externe"
+    },
+    "action_plan": "disk_eject"
+  },
+  {
+    "instruction": "Mets à jour le dossier Dropbox avec les dernières modifications.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Mets à jour",
+      "ITEM_TYPE": "dossier Dropbox",
+      "INFO_TYPE": "dernières modifications"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Ouvre le fichier 'settings.ini' avec le bloc-notes.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "settings.ini",
+      "ITEM_TYPE": "bloc-notes"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Transfère ce document important vers le dossier sécurisé.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Transfère",
+      "OBJECT_TYPE": "document important",
+      "TARGET_LOCATION": "vers le dossier sécurisé"
+    },
+    "action_plan": "fs_move"
+  },
+  {
+    "instruction": "Fais-moi une copie de sauvegarde de ce fichier sur le serveur.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Fais-moi une copie",
+      "NAME_SOURCE_ITEM": "ce fichier",
+      "TARGET_LOCATION": "sur le serveur"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Trouve l'emplacement du fichier 'setup.exe'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trouve",
+      "INFO_TYPE": "emplacement",
+      "NAME_SOURCE_ITEM": "setup.exe"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Affiche les fichiers images triés par date de prise de vue.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Affiche",
+      "ITEM_TYPE": "fichiers images",
+      "SORT_CRITERIA": "triés par date de prise de vue"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Supprime les doublons dans le dossier 'Photos' et vide la corbeille.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "ITEM_TYPE": "doublons",
+      "TARGET_LOCATION": "dans le dossier 'Photos'",
+      "DELETION_TYPE": "vide la corbeille"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Crée un nouveau répertoire pour les factures du mois de mars.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "répertoire",
+      "NAME_DESTINATION_ITEM": "factures du mois de mars"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Ouvre le dernier rapport financier que j'ai consulté.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Ouvre",
+      "NAME_SOURCE_ITEM": "dernier rapport financier",
+      "TIME_CRITERIA": "que j'ai consulté"
+    },
+    "action_plan": "file_open"
+  },
+  {
+    "instruction": "Peux-tu me montrer l'espace disque utilisé par les vidéos ?",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "montrer",
+      "INFO_TYPE": "espace disque utilisé",
+      "ITEM_TYPE": "par les vidéos"
+    },
+    "action_plan": "disk_view_space"
+  },
+  {
+    "instruction": "Envoie le fichier 'presentation.pptx' à toute l'équipe marketing.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "presentation.pptx",
+      "TARGET_LOCATION": "à toute l'équipe marketing"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Renomme le dossier 'old_data' en 'backup_2023_final'.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Renomme",
+      "OBJECT_TYPE": "dossier",
+      "NAME_SOURCE_ITEM": "old_data",
+      "NAME_DESTINATION_ITEM": "backup_2023_final"
+    },
+    "action_plan": "fs_rename_folder"
+  },
+  {
+    "instruction": "Monte le lecteur réseau de l'entreprise en tant que disque Z.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Monte",
+      "DEVICE_TARGET": "lecteur réseau de l'entreprise",
+      "NAME_DESTINATION_ITEM": "disque Z"
+    },
+    "action_plan": "net_mount_drive"
+  },
+  {
+    "instruction": "Extrais l'archive 'source_code.zip' dans le répertoire 'Dev'.",
+    "intention": "FILE_MANAGEMENT",
+    "slots": {
+      "ACTION_VERB": "Extrais",
+      "NAME_SOURCE_ITEM": "source_code.zip",
+      "TARGET_LOCATION": "dans le répertoire 'Dev'"
+    },
+    "action_plan": "fs_extract_archive"
+  },
+  {
+    "instruction": "Recherche les fichiers de script Python dans tout le projet.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Recherche",
+      "ITEM_TYPE": "fichiers de script Python",
+      "SEARCH_SCOPE": "dans tout le projet"
+    },
+    "action_plan": "search_by_type"
+  },
+  {
+    "instruction": "Déplace ce fichier vers la corbeille car il est inutile.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Déplace",
+      "NAME_SOURCE_ITEM": "ce fichier",
+      "DELETION_TYPE": "vers la corbeille"
+    },
+    "action_plan": "fs_delete_trash"
+  },
+  {
+    "instruction": "Copie le dossier 'Projets' du disque C vers le disque D.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Copie",
+      "NAME_SOURCE_ITEM": "dossier 'Projets'",
+      "TARGET_LOCATION": "du disque C",
+      "DEVICE_TARGET": "vers le disque D"
+    },
+    "action_plan": "fs_copy"
+  },
+  {
+    "instruction": "Trie les éléments du dossier par type de fichier.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Trie",
+      "OBJECT_TYPE": "éléments du dossier",
+      "SORT_CRITERIA": "par type de fichier"
+    },
+    "action_plan": "display_by_type"
+  },
+  {
+    "instruction": "Affiche l'aperçu du fichier 'logo.png' sans l'ouvrir.",
+    "intention": "VIEW_INFO",
+    "slots": {
+      "ACTION_VERB": "Affiche l'aperçu",
+      "NAME_SOURCE_ITEM": "logo.png"
+    },
+    "action_plan": "file_preview"
+  },
+  {
+    "instruction": "Modifie le fichier de configuration 'config.xml' maintenant.",
+    "intention": "MANIPULATE",
+    "slots": {
+      "ACTION_VERB": "Modifie",
+      "ITEM_TYPE": "fichier de configuration",
+      "NAME_SOURCE_ITEM": "config.xml",
+      "TIME_CRITERIA": "maintenant"
+    },
+    "action_plan": "file_edit_content"
+  },
+  {
+    "instruction": "Lance l'application Spotify et joue ma playlist.",
+    "intention": "EXECUTE",
+    "slots": {
+      "ACTION_VERB": "Lance",
+      "NAME_SOURCE_ITEM": "Spotify"
+    },
+    "action_plan": "action_run_session"
+  },
+  {
+    "instruction": "Crée un dossier 'Archives' à l'intérieur de 'Documents'.",
+    "intention": "CREATE",
+    "slots": {
+      "ACTION_VERB": "Crée",
+      "OBJECT_TYPE": "dossier",
+      "NAME_DESTINATION_ITEM": "Archives",
+      "TARGET_LOCATION": "à l'intérieur de 'Documents'"
+    },
+    "action_plan": "fs_create_folder"
+  },
+  {
+    "instruction": "Cherche le fichier qui s'appelle 'budget_final.xlsx'.",
+    "intention": "SEARCH_SORT",
+    "slots": {
+      "ACTION_VERB": "Cherche",
+      "OBJECT_TYPE": "fichier",
+      "NAME_SOURCE_ITEM": "budget_final.xlsx"
+    },
+    "action_plan": "search_by_name"
+  },
+  {
+    "instruction": "Envoie 'photo_famille.jpg' par email à ma sœur.",
+    "intention": "COMMUNICATE",
+    "slots": {
+      "ACTION_VERB": "Envoie",
+      "NAME_SOURCE_ITEM": "photo_famille.jpg",
+      "TARGET_LOCATION": "à ma sœur",
+      "SEARCH_METHOD": "par email"
+    },
+    "action_plan": "action_send_message"
+  },
+  {
+    "instruction": "Synchronise mon dossier de travail avec le serveur distant.",
+    "intention": "SYNC_CONNECT",
+    "slots": {
+      "ACTION_VERB": "Synchronise",
+      "ITEM_TYPE": "dossier de travail",
+      "TARGET_LOCATION": "avec le serveur distant"
+    },
+    "action_plan": "net_sync_folders"
+  },
+  {
+    "instruction": "Supprime définitivement le dossier 'Temp' et tout son contenu.",
+    "intention": "DELETE",
+    "slots": {
+      "ACTION_VERB": "Supprime",
+      "DELETION_TYPE": "définitivement",
+      "NAME_SOURCE_ITEM": "dossier 'Temp'",
+      "OBJECT_TYPE": "tout son contenu"
+    },
+    "action_plan": "fs_delete_permanent"
+  },
+  {
+    "instruction": "Fais une copie de ce document sur le bureau tout de suite.",
+    "intention": "MOVE_COPY",
+    "slots": {
+      "ACTION_VERB": "Fais une copie",
+      "NAME_SOURCE_ITEM": "ce document",
+      "TARGET_LOCATION": "sur le bureau",
+      "TIME_CRITERIA": "tout de suite"
+    },
+    "action_plan": "fs_copy"
+  }
 ]
